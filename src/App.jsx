@@ -34,9 +34,9 @@ const C = {
   greenBg:     'rgba(22,163,74,0.10)',
   red2Bg:      'rgba(239,68,68,0.10)',
   red2:        '#EF4444',
-  // Charts
-  blue:        '#3B82F6',
-  purple:      '#8B5CF6',
+  // Charts (warm palette — no blue or purple)
+  orange:      '#F97316',
+  amber:       '#D97706',
 }
 
 // Shadow utility
@@ -471,8 +471,8 @@ function OverviewPage({ setPage, setSelectedEvent }) {
               <YAxis tick={{ fill: C.muted, fontSize: 12 }} axisLine={false} tickLine={false} />
               <Tooltip content={<ChartTooltip />} />
               <Line type="monotone" dataKey="impressions" stroke={C.red}    strokeWidth={2.5} dot={{ fill: C.red,    r: 3.5 }} name="Impressions" />
-              <Line type="monotone" dataKey="saves"       stroke={C.blue}   strokeWidth={2}   dot={{ fill: C.blue,   r: 3 }}   name="Saves" />
-              <Line type="monotone" dataKey="joinClicks"  stroke={C.purple} strokeWidth={2}   dot={{ fill: C.purple, r: 3 }}   name="Join Clicks" />
+              <Line type="monotone" dataKey="saves"       stroke={C.orange}   strokeWidth={2}   dot={{ fill: C.orange,   r: 3 }}   name="Saves" />
+              <Line type="monotone" dataKey="joinClicks"  stroke={C.amber} strokeWidth={2}   dot={{ fill: C.amber, r: 3 }}   name="Join Clicks" />
             </LineChart>
           </ResponsiveContainer>
         </Card>
@@ -590,8 +590,8 @@ function EventsPage({ setPage, setSelectedEvent }) {
               <div style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
                 {[
                   ['Impressions', e.impressions, C.red],
-                  ['Saves',       e.saves,       C.blue],
-                  ['Join Clicks', e.joinClicks,  C.purple],
+                  ['Saves',       e.saves,       C.orange],
+                  ['Join Clicks', e.joinClicks,  C.amber],
                   ['Attending',   e.attending,   C.text],
                 ].map(([label, val, color]) => (
                   <div key={label} style={{ textAlign: 'right' }}>
@@ -728,8 +728,8 @@ function AnalyticsPage() {
 
   const LINES = [
     { key: 'impressions', label: 'Impressions', color: C.red },
-    { key: 'saves',       label: 'Saves',       color: C.blue },
-    { key: 'joinClicks',  label: 'Join Clicks', color: C.purple },
+    { key: 'saves',       label: 'Saves',       color: C.orange },
+    { key: 'joinClicks',  label: 'Join Clicks', color: C.amber },
   ]
 
   const last = WEEKLY_TRENDS[WEEKLY_TRENDS.length - 1]
